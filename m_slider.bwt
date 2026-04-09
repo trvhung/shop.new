@@ -1,4 +1,4 @@
-<section class="mew_mobile_slide mb-4 pt-0">
+<section class="mew_slider">
 	<div class="swiper_hero swiper-container">	
 		<div class="swiper-wrapper">	
 			{%for i in (1..5)%}
@@ -9,9 +9,10 @@
 			{%capture url%}url_slideshow_{{i}}{%endcapture%}
 			{%if settings[ena]%}
 			<div class="swiper-slide">
-				<a href="{{settings[url]}}" title="{{settings.[title]}}">
+				<a href="{{settings[url]}}" title="{{settings.[title]}}" class="d-block">
 					<img class="dpc" alt="{{settings.[title]}}" src="{{image1 | asset_url}}">
 					<img class="dmobile" alt="{{settings.[title]}}" src="{{image2 | asset_url}}">
+					<span class="link text-white position-absolute">KHÁM PHÁ BỘ SƯU TẬP</span>
 				</a>
 			</div>
 			{%endif%}
@@ -24,18 +25,17 @@
 
 <script>
 	window.addEventListener('DOMContentLoaded', (event) => {
-
 		var swiperhero = new Swiper('.swiper_hero', {
 			slidesPerView: 1,
 			spaceBetween: 30,
 			loop: true,
 			speed: 3000,
 			autoplay: true,
+			effect: 'fade',
 			navigation: {
 				nextEl: '.mf_next',
 				prevEl: '.mf_prev',
 			},
 		});
 	})
-
 </script>
