@@ -1,0 +1,41 @@
+<section class="mew_mobile_slide mb-4 pt-0">
+	<div class="swiper_hero swiper-container">	
+		<div class="swiper-wrapper">	
+			{%for i in (1..5)%}
+			{%capture ena%}ena_slideshow_{{i}}{%endcapture%}
+			{%capture image1%}pc_slide_{{i}}.jpg{%endcapture%}
+			{%capture image2%}mob_slide_{{i}}.jpg{%endcapture%}
+			{%capture title%}alt_slidshow_{{i}}{%endcapture%}
+			{%capture url%}url_slideshow_{{i}}{%endcapture%}
+			{%if settings[ena]%}
+			<div class="swiper-slide">
+				<a href="{{settings[url]}}" title="{{settings.[title]}}">
+					<img class="dpc" alt="{{settings.[title]}}" src="{{image1 | asset_url}}">
+					<img class="dmobile" alt="{{settings.[title]}}" src="{{image2 | asset_url}}">
+				</a>
+			</div>
+			{%endif%}
+			{%endfor%}		
+		</div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+</section>
+
+<script>
+	window.addEventListener('DOMContentLoaded', (event) => {
+
+		var swiperhero = new Swiper('.swiper_hero', {
+			slidesPerView: 1,
+			spaceBetween: 30,
+			loop: true,
+			speed: 3000,
+			autoplay: true,
+			navigation: {
+				nextEl: '.mf_next',
+				prevEl: '.mf_prev',
+			},
+		});
+	})
+
+</script>
